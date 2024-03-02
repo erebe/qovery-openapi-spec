@@ -1,0 +1,30 @@
+post:
+  summary: Clone database
+  description: >-
+    This will create a new database with the same configuration on the targeted
+    environment Id.
+  operationId: cloneDatabase
+  parameters:
+    - $ref: ../components/parameters/databaseId.yaml
+  tags:
+    - Databases
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CloneServiceRequest.yaml
+  responses:
+    '202':
+      description: Database clone has been requested
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DatabaseResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Operation is in progress

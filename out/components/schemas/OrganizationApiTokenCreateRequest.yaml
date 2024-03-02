@@ -1,0 +1,16 @@
+type: object
+required:
+  - name
+  - role_id
+properties:
+  name:
+    type: string
+  description:
+    type: string
+  scope:
+    $ref: ./OrganizationApiTokenScope.yaml
+  role_id:
+    type: string
+    format: uuid
+    nullable: true
+    description: the roleId provided by the "List organization custom roles" endpoint.

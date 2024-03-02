@@ -1,0 +1,30 @@
+get:
+  summary: Get organization billing status
+  description: >
+    This endpoint returns a "is_valid" boolean field reflecting the billing
+    status of the organization:
+
+    - If true, the organization billing is valid
+
+    - For Startup organization, it returns false if there is at least 1 invoice
+    unpaid since 1 week
+
+    - For Community organization, it returns false if there is no credit left
+  operationId: getOrganizationBillingStatus
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Billing
+  responses:
+    '200':
+      description: Get Billing Status
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/BillingStatus.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

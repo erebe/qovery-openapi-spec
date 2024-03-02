@@ -1,0 +1,18 @@
+get:
+  summary: List Scaleway features available
+  operationId: listScalewayFeatures
+  tags:
+    - Cloud Provider
+  responses:
+    '200':
+      description: list features available for Scaleway cloud provider
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ClusterFeatureResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

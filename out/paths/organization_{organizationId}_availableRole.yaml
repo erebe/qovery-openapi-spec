@@ -1,0 +1,21 @@
+get:
+  summary: List organization available roles
+  description: List organization available roles
+  operationId: listOrganizationAvailableRoles
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Organization Main Calls
+  responses:
+    '200':
+      description: List organization available roles
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OrganizationAvailableRoleResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

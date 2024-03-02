@@ -1,0 +1,49 @@
+delete:
+  summary: Delete a cluster
+  operationId: deleteCluster
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+    - $ref: ../components/parameters/clusterId.yaml
+    - in: query
+      name: deleteMode
+      schema:
+        $ref: ../components/schemas/ClusterDeleteMode.yaml
+  tags:
+    - Clusters
+  responses:
+    '204':
+      $ref: ../components/responses/Deleted.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+put:
+  summary: Edit a cluster
+  operationId: editCluster
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+    - $ref: ../components/parameters/clusterId.yaml
+  tags:
+    - Clusters
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ClusterRequest.yaml
+  responses:
+    '200':
+      description: Edited the cluster
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ClusterResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

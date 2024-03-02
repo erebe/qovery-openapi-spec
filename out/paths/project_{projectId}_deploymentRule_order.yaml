@@ -1,0 +1,25 @@
+put:
+  summary: Update deployment rules priority order
+  description: Update deployment rules priority order
+  operationId: updateDeploymentRulesPriorityOrder
+  parameters:
+    - $ref: ../components/parameters/projectId.yaml
+  tags:
+    - Project Deployment Rule
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: >-
+            ../components/schemas/ProjectDeploymentRulesPriorityOrderRequest.yaml
+  responses:
+    '200':
+      description: Update deployment rules priority order
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

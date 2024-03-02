@@ -1,0 +1,18 @@
+get:
+  summary: List Scaleway available instance types
+  operationId: listScalewayInstanceType
+  tags:
+    - Cloud Provider
+  responses:
+    '200':
+      description: list the instance types available for Scaleway cloud provider
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ClusterInstanceTypeResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

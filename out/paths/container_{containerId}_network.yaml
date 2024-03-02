@@ -1,0 +1,49 @@
+get:
+  summary: Get Container Network information
+  description: Get status of the container network settings.
+  operationId: getContainerNetwork
+  parameters:
+    - $ref: ../components/parameters/containerId.yaml
+  tags:
+    - Container Configuration
+  responses:
+    '200':
+      description: Network information
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ContainerNetworkResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+put:
+  summary: Edit Container Network
+  description: Edit the Network settings of the container.
+  operationId: editContainerNetwork
+  parameters:
+    - $ref: ../components/parameters/containerId.yaml
+  tags:
+    - Container Configuration
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ContainerNetworkRequest.yaml
+  responses:
+    '201':
+      description: Updated container network setting
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ContainerNetworkResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

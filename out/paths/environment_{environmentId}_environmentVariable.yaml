@@ -1,0 +1,51 @@
+get:
+  summary: List environment variables
+  operationId: listEnvironmentEnvironmentVariable
+  parameters:
+    - $ref: ../components/parameters/environmentId.yaml
+  tags:
+    - Environment Variable
+  responses:
+    '200':
+      description: List environment variables
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/EnvironmentVariableResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+post:
+  summary: Add an environment variable to the environment
+  description: |
+    - Add an environment variable to the environment.
+      - If the environment variable key already exists, then it will be replaced by the new one.
+      - If the environment variable value points toward an existing environment variable key, it will be considered as an alias.
+  operationId: createEnvironmentEnvironmentVariable
+  parameters:
+    - $ref: ../components/parameters/environmentId.yaml
+  tags:
+    - Environment Variable
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/EnvironmentVariableRequest.yaml
+  responses:
+    '201':
+      description: Added an environment variable
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/EnvironmentVariableResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

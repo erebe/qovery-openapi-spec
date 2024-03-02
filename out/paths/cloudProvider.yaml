@@ -1,0 +1,18 @@
+get:
+  summary: List Cloud providers available
+  operationId: listCloudProvider
+  tags:
+    - Cloud Provider
+  responses:
+    '200':
+      description: list cloud providers
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CloudProviderResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

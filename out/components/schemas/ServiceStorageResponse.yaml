@@ -1,0 +1,24 @@
+type: object
+properties:
+  storage:
+    type: array
+    items:
+      type: object
+      required:
+        - id
+        - type
+        - size
+        - mount_point
+      properties:
+        id:
+          type: string
+          format: uuid
+        type:
+          $ref: ./StorageType.yaml
+        size:
+          type: integer
+          description: unit is GB
+          example: 16
+        mount_point:
+          type: string
+          example: /mnt/images

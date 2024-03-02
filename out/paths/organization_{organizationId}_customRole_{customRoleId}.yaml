@@ -1,0 +1,69 @@
+get:
+  summary: 'Get an organization custom role '
+  description: 'Get an organization custom role '
+  operationId: getOrganizationCustomRole
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+    - $ref: ../components/parameters/customRoleId.yaml
+  tags:
+    - Organization Custom Role
+  responses:
+    '200':
+      description: 'Get an organization custom role '
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OrganizationCustomRoleResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+put:
+  summary: Edit an organization custom role
+  description: Edit an organization custom role
+  operationId: editOrganizationCustomRole
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+    - $ref: ../components/parameters/customRoleId.yaml
+  tags:
+    - Organization Custom Role
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/OrganizationCustomRoleUpdateRequest.yaml
+  responses:
+    '200':
+      description: Edit an organization custom role
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OrganizationCustomRoleResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+delete:
+  summary: Delete organization custom role
+  description: Delete organization custom role
+  operationId: deleteOrganizationCustomRole
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+    - $ref: ../components/parameters/customRoleId.yaml
+  tags:
+    - Organization Custom Role
+  responses:
+    '204':
+      $ref: ../components/responses/NoContent.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

@@ -1,0 +1,15 @@
+get:
+  deprecated: true
+  summary: Get git provider accounts
+  operationId: getGitProviderAccount
+  tags:
+    - Git repositories
+  responses:
+    '200':
+      description: Get account
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GitAuthProviderResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml

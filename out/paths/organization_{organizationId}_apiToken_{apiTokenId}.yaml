@@ -1,0 +1,18 @@
+delete:
+  summary: Delete organization api token
+  description: Delete organization api token
+  operationId: deleteOrganizationApiToken
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+    - $ref: ../components/parameters/apiTokenId.yaml
+  tags:
+    - Organization Api Token
+  responses:
+    '204':
+      $ref: ../components/responses/NoContent.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

@@ -1,0 +1,20 @@
+get:
+  summary: List organization invoices
+  operationId: listOrganizationInvoice
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Billing
+  responses:
+    '200':
+      description: List Invoices
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/InvoiceResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

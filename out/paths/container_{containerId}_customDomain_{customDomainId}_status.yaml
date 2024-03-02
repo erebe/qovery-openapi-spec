@@ -1,0 +1,21 @@
+get:
+  summary: Get Custom Domain status
+  operationId: getContainerCustomDomainStatus
+  parameters:
+    - $ref: ../components/parameters/containerId.yaml
+    - $ref: ../components/parameters/customDomainId.yaml
+  tags:
+    - Container Custom Domain
+  responses:
+    '200':
+      description: Get status
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CustomDomainResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

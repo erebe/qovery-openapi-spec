@@ -1,0 +1,24 @@
+type: object
+properties:
+  applications:
+    type: array
+    items:
+      $ref: ./Status.yaml
+  containers:
+    type: array
+    items:
+      $ref: ./Status.yaml
+  jobs:
+    type: array
+    items:
+      $ref: ./Status.yaml
+  databases:
+    type: array
+    items:
+      $ref: ./Status.yaml
+  helms:
+    type: array
+    items:
+      $ref: ./Status.yaml
+  stage:
+    $ref: ./Stage.yaml

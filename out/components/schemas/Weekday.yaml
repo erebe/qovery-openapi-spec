@@ -1,0 +1,10 @@
+type: string
+enum:
+  - MONDAY
+  - TUESDAY
+  - WEDNESDAY
+  - THURSDAY
+  - FRIDAY
+  - SATURDAY
+  - SUNDAY
+example: MONDAY

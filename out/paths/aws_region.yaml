@@ -1,0 +1,18 @@
+get:
+  summary: List AWS regions
+  operationId: listAWSRegions
+  tags:
+    - Cloud Provider
+  responses:
+    '200':
+      description: list regions
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ClusterRegionResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

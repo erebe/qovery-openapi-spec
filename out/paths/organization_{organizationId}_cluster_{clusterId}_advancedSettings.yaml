@@ -1,0 +1,55 @@
+get:
+  summary: Get advanced settings
+  description: >
+    Get the list and values of the advanced settings of the cluster.
+
+    Default values for each setting are available in [our
+    documentation](https://hub.qovery.com/docs/using-qovery/configuration/cluster-advanced-settings/)
+  operationId: getClusterAdvancedSettings
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+    - $ref: ../components/parameters/clusterId.yaml
+  tags:
+    - Clusters
+  responses:
+    '200':
+      description: Advanced settings list
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ClusterAdvancedSettings.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+put:
+  summary: Edit advanced settings
+  description: Edit advanced settings by returning table of advanced settings.
+  operationId: editClusterAdvancedSettings
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+    - $ref: ../components/parameters/clusterId.yaml
+  tags:
+    - Clusters
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ClusterAdvancedSettings.yaml
+  responses:
+    '201':
+      description: Updated advanced settings
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ClusterAdvancedSettings.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

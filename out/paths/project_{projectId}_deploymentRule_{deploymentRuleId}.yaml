@@ -1,0 +1,69 @@
+get:
+  summary: Get a project deployment rule
+  description: Get a project deployment rule
+  operationId: getProjectDeploymentRule
+  parameters:
+    - $ref: ../components/parameters/projectId.yaml
+    - $ref: ../components/parameters/deploymentRuleId.yaml
+  tags:
+    - Project Deployment Rule
+  responses:
+    '200':
+      description: Get project deployment rule
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProjectDeploymentRuleResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+put:
+  summary: Edit a project deployment rule
+  description: Edit a project deployment rule
+  operationId: editProjectDeployemtnRule
+  parameters:
+    - $ref: ../components/parameters/projectId.yaml
+    - $ref: ../components/parameters/deploymentRuleId.yaml
+  tags:
+    - Project Deployment Rule
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProjectDeploymentRuleRequest.yaml
+  responses:
+    '200':
+      description: Edit a project deployment rule
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProjectDeploymentRuleResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+delete:
+  summary: Delete a project deployment rule
+  description: Delete a project deployment rule
+  operationId: deleteProjectDeploymentRule
+  parameters:
+    - $ref: ../components/parameters/projectId.yaml
+    - $ref: ../components/parameters/deploymentRuleId.yaml
+  tags:
+    - Project Deployment Rule
+  responses:
+    '204':
+      $ref: ../components/responses/Deleted.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

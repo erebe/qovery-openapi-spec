@@ -1,0 +1,38 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  timestamp:
+    type: string
+    format: date-time
+  event_type:
+    $ref: ./OrganizationEventType.yaml
+  target_id:
+    type: string
+    format: uuid
+    nullable: true
+  target_name:
+    type: string
+  target_type:
+    $ref: ./OrganizationEventTargetType.yaml
+  sub_target_type:
+    $ref: ./OrganizationEventSubTargetType.yaml
+  change:
+    type: string
+  origin:
+    $ref: ./OrganizationEventOrigin.yaml
+  triggered_by:
+    type: string
+  project_id:
+    type: string
+    format: uuid
+    nullable: true
+  project_name:
+    type: string
+  environment_id:
+    type: string
+    format: uuid
+    nullable: true
+  environment_name:
+    type: string

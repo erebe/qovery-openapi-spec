@@ -1,0 +1,21 @@
+get:
+  summary: List environments statuses
+  description: Returns a list of environments with only their id and status.
+  operationId: getProjectEnvironmentsStatus
+  parameters:
+    - $ref: ../components/parameters/projectId.yaml
+  tags:
+    - Environments
+  responses:
+    '200':
+      description: Get status
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/EnvironmentStatusList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

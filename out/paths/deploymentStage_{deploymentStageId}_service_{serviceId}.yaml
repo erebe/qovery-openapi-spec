@@ -1,0 +1,21 @@
+put:
+  summary: Attach service to deployment stage
+  operationId: AttachServiceToDeploymentStage
+  parameters:
+    - $ref: ../components/parameters/deploymentStageId.yaml
+    - $ref: ../components/parameters/serviceId.yaml
+  tags:
+    - Deployment Stage Main Calls
+  responses:
+    '200':
+      description: List of deployment stages for the env
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DeploymentStageResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

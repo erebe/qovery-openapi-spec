@@ -1,0 +1,16 @@
+post:
+  summary: Download all invoices
+  operationId: organizationDownloadAllInvoices
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Billing
+  responses:
+    '202':
+      description: You will receive an email containing your invoices
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

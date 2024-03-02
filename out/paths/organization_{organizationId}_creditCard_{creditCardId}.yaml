@@ -1,0 +1,17 @@
+delete:
+  summary: Delete credit card
+  operationId: deleteCreditCard
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+    - $ref: ../components/parameters/creditCardId.yaml
+  tags:
+    - Billing
+  responses:
+    '204':
+      $ref: ../components/responses/Deleted.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

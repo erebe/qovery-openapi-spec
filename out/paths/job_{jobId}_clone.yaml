@@ -1,0 +1,30 @@
+post:
+  summary: Clone job
+  description: >-
+    This will create a new job with the same configuration on the targeted
+    environment Id.
+  operationId: cloneJob
+  parameters:
+    - $ref: ../components/parameters/jobId.yaml
+  tags:
+    - Jobs
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CloneServiceRequest.yaml
+  responses:
+    '202':
+      description: Job clone has been requested
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/JobResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Operation is in progress

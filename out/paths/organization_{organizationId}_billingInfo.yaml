@@ -1,0 +1,47 @@
+get:
+  summary: Get organization billing info
+  operationId: getOrganizationBillingInfo
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Billing
+  responses:
+    '200':
+      description: Get Billing Info
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/BillingInfoResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+put:
+  summary: Edit Organization Billing Info
+  operationId: editOrganizationBillingInfo
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Billing
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/BillingInfoRequest.yaml
+  responses:
+    '200':
+      description: Edit billing info
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/BillingInfoResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

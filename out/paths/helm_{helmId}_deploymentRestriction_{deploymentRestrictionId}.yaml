@@ -1,0 +1,47 @@
+put:
+  summary: Edit a helm deployment restriction
+  description: Edit a helm deployment restriction
+  operationId: editHelmDeploymentRestriction
+  parameters:
+    - $ref: ../components/parameters/helmId.yaml
+    - $ref: ../components/parameters/deploymentRestrictionId.yaml
+  tags:
+    - Helm Deployment Restriction
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/HelmDeploymentRestrictionRequest.yaml
+  responses:
+    '200':
+      description: Edit a helm deployment restriction
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/HelmDeploymentRestrictionResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+delete:
+  summary: Delete a helm deployment restriction
+  description: Delete a helm deployment restriction
+  operationId: deleteHelmDeploymentRestriction
+  parameters:
+    - $ref: ../components/parameters/helmId.yaml
+    - $ref: ../components/parameters/deploymentRestrictionId.yaml
+  tags:
+    - Helm Deployment Restriction
+  responses:
+    '204':
+      $ref: ../components/responses/Deleted.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

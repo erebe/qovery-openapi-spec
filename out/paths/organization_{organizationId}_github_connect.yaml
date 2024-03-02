@@ -1,0 +1,23 @@
+post:
+  summary: Connect a github account to an organization
+  operationId: organizationGithubAppConnect
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Github App
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/OrganizationGithubAppConnectRequest.yaml
+  responses:
+    '200':
+      description: Github App connected
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

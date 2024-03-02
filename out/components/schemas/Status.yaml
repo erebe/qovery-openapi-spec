@@ -1,0 +1,20 @@
+type: object
+required:
+  - id
+  - state
+  - service_deployment_status
+properties:
+  id:
+    type: string
+    format: uuid
+  state:
+    $ref: ./State.yaml
+  service_deployment_status:
+    $ref: ./ServiceDeploymentStatus.yaml
+  last_deployment_date:
+    type: string
+    format: date-time
+  is_part_last_deployment:
+    type: boolean
+  steps:
+    $ref: ./ServiceStepMetrics.yaml

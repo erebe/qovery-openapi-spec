@@ -1,0 +1,22 @@
+get:
+  summary: List last helm commits
+  description: Returns list of the last 100 commits made on the repository linked to helm
+  operationId: listHelmCommit
+  parameters:
+    - $ref: ../components/parameters/helmId.yaml
+    - $ref: ../components/parameters/helmOf.yaml
+  tags:
+    - Helm Main Calls
+  responses:
+    '200':
+      description: List Helm commits
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CommitResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

@@ -1,0 +1,47 @@
+get:
+  summary: List organization credit cards
+  operationId: listOrganizationCreditCards
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Billing
+  responses:
+    '200':
+      description: List cfredit cards
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CreditCardResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+post:
+  summary: Add credit card
+  operationId: addCreditCard
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Billing
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreditCardRequest.yaml
+  responses:
+    '201':
+      description: Add credit card
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CreditCardResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

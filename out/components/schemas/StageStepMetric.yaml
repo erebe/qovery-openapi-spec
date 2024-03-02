@@ -1,0 +1,9 @@
+type: object
+properties:
+  step_name:
+    $ref: ./StageStepMetricName.yaml
+  status:
+    $ref: ./StepMetricStatus.yaml
+  duration_sec:
+    description: The duration of the step in seconds.
+    type: integer

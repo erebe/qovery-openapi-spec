@@ -1,0 +1,48 @@
+put:
+  summary: Edit an application deployment restriction
+  description: Edit an application deployment restriction
+  operationId: editApplicationDeploymentRestriction
+  parameters:
+    - $ref: ../components/parameters/applicationId.yaml
+    - $ref: ../components/parameters/deploymentRestrictionId.yaml
+  tags:
+    - Application Deployment Restriction
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ApplicationDeploymentRestrictionRequest.yaml
+  responses:
+    '200':
+      description: Edit an application deployment restriction
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/ApplicationDeploymentRestrictionResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+delete:
+  summary: Delete an application deployment restriction
+  description: Delete an application deployment restriction
+  operationId: deleteApplicationDeploymentRestriction
+  parameters:
+    - $ref: ../components/parameters/applicationId.yaml
+    - $ref: ../components/parameters/deploymentRestrictionId.yaml
+  tags:
+    - Application Deployment Restriction
+  responses:
+    '204':
+      $ref: ../components/responses/Deleted.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

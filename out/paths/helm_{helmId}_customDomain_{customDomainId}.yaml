@@ -1,0 +1,71 @@
+put:
+  summary: Edit a Custom Domain
+  description: To edit a Custom Domain you must have the project user permission
+  operationId: editHelmCustomDomain
+  parameters:
+    - $ref: ../components/parameters/helmId.yaml
+    - $ref: ../components/parameters/customDomainId.yaml
+  tags:
+    - Helm Custom Domain
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CustomDomainRequest.yaml
+  responses:
+    '200':
+      description: Edit a CustomDomain
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CustomDomainResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+delete:
+  summary: Delete a Custom Domain
+  description: To delete an CustomDomain you must have the project user permission
+  operationId: deleteHelmCustomDomain
+  parameters:
+    - $ref: ../components/parameters/helmId.yaml
+    - $ref: ../components/parameters/customDomainId.yaml
+  tags:
+    - Helm Custom Domain
+  responses:
+    '204':
+      $ref: ../components/responses/Deleted.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+get:
+  summary: Get a Custom Domain
+  description: Get a custom domain
+  operationId: getHelmCustomDomain
+  parameters:
+    - $ref: ../components/parameters/helmId.yaml
+    - $ref: ../components/parameters/customDomainId.yaml
+  tags:
+    - Helm Custom Domain
+  responses:
+    '200':
+      description: Get a CustomDomain
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CustomDomainResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

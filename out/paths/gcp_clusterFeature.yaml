@@ -1,0 +1,18 @@
+get:
+  summary: List GCP features available
+  operationId: listGcpFeatures
+  tags:
+    - Cloud Provider
+  responses:
+    '200':
+      description: list features available for GCP cloud provider
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ClusterFeatureResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

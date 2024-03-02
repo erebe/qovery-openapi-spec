@@ -1,0 +1,21 @@
+get:
+  summary: List all clusters statuses
+  description: Returns a list of clusters with only their id and status.
+  operationId: getOrganizationClusterStatus
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Clusters
+  responses:
+    '200':
+      description: Get statuses
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ClusterStatusResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

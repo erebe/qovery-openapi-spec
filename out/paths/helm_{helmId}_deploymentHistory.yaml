@@ -1,0 +1,22 @@
+get:
+  summary: List helm deployments
+  description: Returns the 20 last helm deployments
+  operationId: listHelmDeploymentHistory
+  parameters:
+    - $ref: ../components/parameters/helmId.yaml
+  tags:
+    - Helm Deployment History
+  responses:
+    '200':
+      description: List deployment history
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/DeploymentHistoryHelmPaginatedResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

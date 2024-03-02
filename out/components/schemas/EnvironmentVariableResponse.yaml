@@ -1,0 +1,25 @@
+allOf:
+  - $ref: ./BaseResponse.yaml
+  - $ref: ./EnvironmentVariableRequest.yaml
+  - type: object
+    required:
+      - scope
+    properties:
+      overridden_variable:
+        $ref: ./EnvironmentVariableOverride.yaml
+      aliased_variable:
+        $ref: ./EnvironmentVariableAlias.yaml
+      scope:
+        $ref: ./APIVariableScope.yaml
+      variable_type:
+        $ref: ./APIVariableType.yaml
+      service_id:
+        type: string
+        format: uuid
+      service_name:
+        type: string
+      service_type:
+        $ref: ./LinkedServiceType.yaml
+      owned_by:
+        type: string
+        description: 'Entity that created/own the variable (i.e: Qovery, Doppler)'

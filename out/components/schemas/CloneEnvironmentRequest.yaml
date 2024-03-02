@@ -1,0 +1,15 @@
+type: object
+required:
+  - name
+properties:
+  name:
+    type: string
+    description: name is case insensitive
+  cluster_id:
+    type: string
+    format: uuid
+  mode:
+    $ref: ./EnvironmentMode.yaml
+  apply_deployment_rule:
+    type: boolean
+    default: false

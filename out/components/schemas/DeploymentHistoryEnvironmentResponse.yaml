@@ -1,0 +1,30 @@
+allOf:
+  - $ref: ./BaseResponse.yaml
+  - type: object
+    properties:
+      status:
+        $ref: ./State.yaml
+      origin:
+        $ref: ./OrganizationEventOrigin.yaml
+      triggered_by:
+        type: string
+      applications:
+        type: array
+        items:
+          $ref: ./DeploymentHistoryApplicationResponse.yaml
+      containers:
+        type: array
+        items:
+          $ref: ./DeploymentHistoryContainerResponse.yaml
+      databases:
+        type: array
+        items:
+          $ref: ./DeploymentHistoryDatabaseResponse.yaml
+      jobs:
+        type: array
+        items:
+          $ref: ./DeploymentHistoryJobResponse.yaml
+      helms:
+        type: array
+        items:
+          $ref: ./DeploymentHistoryHelmResponse.yaml

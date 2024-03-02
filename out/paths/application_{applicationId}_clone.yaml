@@ -1,0 +1,30 @@
+post:
+  summary: Clone application
+  description: >-
+    This will create a new application with the same configuration on the
+    targeted environment Id.
+  operationId: cloneApplication
+  parameters:
+    - $ref: ../components/parameters/applicationId.yaml
+  tags:
+    - Applications
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CloneServiceRequest.yaml
+  responses:
+    '202':
+      description: Application clone has been requested
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ApplicationResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Operation is in progress

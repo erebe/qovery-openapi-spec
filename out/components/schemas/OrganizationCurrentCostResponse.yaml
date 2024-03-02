@@ -1,0 +1,3 @@
+allOf:
+  - $ref: ./CurrentCost.yaml
+  - type: object

@@ -1,0 +1,42 @@
+post:
+  summary: Deploy helm
+  description: >-
+    You must provide a git commit id or an image tag depending on the source
+    location of your code (git vs image repository).
+  operationId: deployHelm
+  parameters:
+    - $ref: ../components/parameters/helmId.yaml
+    - name: forceEvent
+      in: query
+      required: false
+      description: >
+        When filled, it indicates the target event to be deployed.  
+
+        If the concerned helm hasn't the target event provided, the helm won't
+        be deployed.
+      schema:
+        $ref: ../components/schemas/HelmForceEvent.yaml
+  tags:
+    - Helm Actions
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/HelmDeployRequest.yaml
+  responses:
+    '202':
+      description: Deploy helm
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Status.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Operation is in progress

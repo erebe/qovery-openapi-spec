@@ -1,0 +1,22 @@
+get:
+  summary: List supported languages
+  description: Returns list of languages supported by Buildpacks.
+  operationId: getEnvironmentApplicationSupportedLanguages
+  parameters:
+    - $ref: ../components/parameters/environmentId.yaml
+  tags:
+    - Applications
+  responses:
+    '200':
+      description: Supported languages list.
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/EnvironmentApplicationsSupportedLanguageResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

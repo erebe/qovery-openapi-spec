@@ -1,0 +1,20 @@
+get:
+  summary: Get Service Deployment Stage
+  operationId: getServiceDeploymentStage
+  parameters:
+    - $ref: ../components/parameters/serviceId.yaml
+  tags:
+    - Deployment Stage Main Calls
+  responses:
+    '200':
+      description: Get Service Deployment Stage
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DeploymentStageResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

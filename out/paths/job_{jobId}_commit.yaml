@@ -1,0 +1,25 @@
+get:
+  summary: List last job commits
+  description: >-
+    Returns list of the last 100 commits made on the repository linked to the
+    job
+  operationId: listJobCommit
+  parameters:
+    - $ref: ../components/parameters/jobId.yaml
+    - $ref: ../components/parameters/startId.yaml
+    - $ref: ../components/parameters/gitCommitId.yaml
+  tags:
+    - Job Main Calls
+  responses:
+    '200':
+      description: List job commits
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CommitResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

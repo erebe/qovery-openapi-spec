@@ -1,0 +1,21 @@
+get:
+  summary: List Scaleway available managed database instance types
+  operationId: listSCWManagedDatabaseInstanceType
+  parameters:
+    - $ref: ../components/parameters/zone.yaml
+    - $ref: ../components/parameters/databaseType.yaml
+  tags:
+    - Cloud Provider
+  responses:
+    '200':
+      description: list Scaleway available managed database instance types
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ManagedDatabaseInstanceTypeResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

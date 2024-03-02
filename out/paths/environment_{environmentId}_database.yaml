@@ -1,0 +1,49 @@
+get:
+  summary: List environment databases
+  operationId: listDatabase
+  parameters:
+    - $ref: ../components/parameters/environmentId.yaml
+  tags:
+    - Databases
+  responses:
+    '200':
+      description: List databases
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DatabaseResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+post:
+  summary: Create a database
+  operationId: createDatabase
+  parameters:
+    - $ref: ../components/parameters/environmentId.yaml
+  tags:
+    - Databases
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/DatabaseRequest.yaml
+  responses:
+    '201':
+      description: 'Create database '
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DatabaseResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Database name within the environment is already taken

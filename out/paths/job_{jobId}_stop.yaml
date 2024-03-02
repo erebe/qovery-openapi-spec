@@ -1,0 +1,22 @@
+post:
+  summary: Stop job
+  operationId: stopJob
+  parameters:
+    - $ref: ../components/parameters/jobId.yaml
+  tags:
+    - Job Actions
+  responses:
+    '202':
+      description: Job stop has been requested
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Status.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Job is already stopped or an operation is in progress

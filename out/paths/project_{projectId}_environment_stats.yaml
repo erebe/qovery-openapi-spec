@@ -1,0 +1,21 @@
+get:
+  summary: List total number of services for each environment of the project
+  description: Returns a list of environment ids, and for each its total numberof services
+  operationId: getProjectEnvironmentServiceNumber
+  parameters:
+    - $ref: ../components/parameters/projectId.yaml
+  tags:
+    - Environments
+  responses:
+    '200':
+      description: Get number of services
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/EnvironmentStatsResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

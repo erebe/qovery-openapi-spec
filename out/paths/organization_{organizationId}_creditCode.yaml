@@ -1,0 +1,23 @@
+post:
+  summary: Add credit code
+  operationId: addCreditCode
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Billing
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/OrganizationCreditCodeRequest.yaml
+  responses:
+    '200':
+      description: add credit code
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

@@ -1,0 +1,22 @@
+get:
+  summary: Get organization billing external ID
+  description: |
+    This endpoint returns the external ID of the organization's billing account.
+  operationId: getOrganizationBillingExternalId
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Billing
+  responses:
+    '200':
+      description: Get Billing External ID
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/BillingExternalId.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

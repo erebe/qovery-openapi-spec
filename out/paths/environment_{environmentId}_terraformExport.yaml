@@ -1,0 +1,22 @@
+get:
+  summary: Export full environment and its resources into Terraform manifests
+  operationId: exportEnvironmentConfigurationIntoTerraform
+  parameters:
+    - $ref: ../components/parameters/environmentId.yaml
+    - $ref: ../components/parameters/exportSecrets.yaml
+  tags:
+    - Environment Export
+  responses:
+    '200':
+      description: Export full environment and its resources into Terraform manifests
+      content:
+        application/zip:
+          schema:
+            type: string
+            format: binary
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

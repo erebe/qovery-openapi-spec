@@ -1,0 +1,27 @@
+post:
+  summary: Change organization plan
+  operationId: changePlan
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Billing
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/OrganizationChangePlanRequest.yaml
+  responses:
+    '200':
+      description: plan has been successfully changed
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OrganizationResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

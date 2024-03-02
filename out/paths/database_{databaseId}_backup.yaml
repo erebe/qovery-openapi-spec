@@ -1,0 +1,51 @@
+get:
+  summary: List database  backups
+  description: >-
+    By default it returns the 20 last results. The response is paginated. In
+    order to request the next page, you can use the startId query parameter
+  operationId: listDatabaseBackup
+  parameters:
+    - $ref: ../components/parameters/databaseId.yaml
+    - $ref: ../components/parameters/startId.yaml
+  tags:
+    - Backups
+  responses:
+    '200':
+      description: List backups
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/BackupPaginatedResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+post:
+  summary: 'Add a backup to the Database '
+  operationId: addBackupDatabase
+  parameters:
+    - $ref: ../components/parameters/databaseId.yaml
+  tags:
+    - Backups
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/BackupRequest.yaml
+  responses:
+    '201':
+      description: Added backup
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/BackupResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

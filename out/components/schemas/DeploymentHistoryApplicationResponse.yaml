@@ -1,0 +1,10 @@
+allOf:
+  - $ref: ./BaseResponse.yaml
+  - type: object
+    properties:
+      name:
+        type: string
+      commit:
+        $ref: ./CommitResponse.yaml
+      status:
+        $ref: ./State.yaml

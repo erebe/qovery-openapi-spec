@@ -1,0 +1,47 @@
+put:
+  summary: Edit a job deployment restriction
+  description: Edit a job deployment restriction
+  operationId: editJobDeploymentRestriction
+  parameters:
+    - $ref: ../components/parameters/jobId.yaml
+    - $ref: ../components/parameters/deploymentRestrictionId.yaml
+  tags:
+    - Job Deployment Restriction
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/JobDeploymentRestrictionRequest.yaml
+  responses:
+    '200':
+      description: Edit a job deployment restriction
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/JobDeploymentRestrictionResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+delete:
+  summary: Delete a job deployment restriction
+  description: Delete a job deployment restriction
+  operationId: deleteJobDeploymentRestriction
+  parameters:
+    - $ref: ../components/parameters/jobId.yaml
+    - $ref: ../components/parameters/deploymentRestrictionId.yaml
+  tags:
+    - Job Deployment Restriction
+  responses:
+    '204':
+      $ref: ../components/responses/Deleted.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

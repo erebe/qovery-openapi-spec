@@ -1,0 +1,67 @@
+get:
+  summary: Get environment by ID
+  operationId: getEnvironment
+  parameters:
+    - $ref: ../components/parameters/environmentId.yaml
+  tags:
+    - Environment Main Calls
+  responses:
+    '200':
+      description: Get environment by ID
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/EnvironmentResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+put:
+  summary: Edit an environment
+  description: To edit an environment you must have the admin permission
+  operationId: editEnvironment
+  parameters:
+    - $ref: ../components/parameters/environmentId.yaml
+  tags:
+    - Environment Main Calls
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/EnvironmentEditRequest.yaml
+  responses:
+    '200':
+      description: Edit an environment
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/EnvironmentResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Environment name within the project is already taken
+delete:
+  summary: Delete an environment
+  description: To delete an environment you must have the admin permission
+  operationId: deleteEnvironment
+  parameters:
+    - $ref: ../components/parameters/environmentId.yaml
+  tags:
+    - Environment Main Calls
+  responses:
+    '204':
+      $ref: ../components/responses/Deleted.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

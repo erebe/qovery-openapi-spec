@@ -1,0 +1,47 @@
+get:
+  summary: List organization custom roles
+  description: List organization custom roles
+  operationId: listOrganizationCustomRoles
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Organization Custom Role
+  responses:
+    '200':
+      description: List organization custom roles
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OrganizationCustomRoleResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+post:
+  summary: Create an organization custom role
+  description: Create an organization custom role
+  operationId: createOrganizationCustomRole
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Organization Custom Role
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/OrganizationCustomRoleCreateRequest.yaml
+  responses:
+    '201':
+      description: Organization custom role created
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OrganizationCustomRoleResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml

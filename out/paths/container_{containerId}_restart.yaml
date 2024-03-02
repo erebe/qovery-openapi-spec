@@ -1,0 +1,23 @@
+post:
+  summary: Deprecated - Restart container
+  description: '**Deprecated** - Please use the "Redeploy container" endpoint now'
+  operationId: restartContainer
+  parameters:
+    - $ref: ../components/parameters/containerId.yaml
+  tags:
+    - Container Actions
+  responses:
+    '202':
+      description: Container restart has been requested
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Status.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Operation is in progress

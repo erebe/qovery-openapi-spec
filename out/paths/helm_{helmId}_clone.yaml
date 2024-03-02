@@ -1,0 +1,30 @@
+post:
+  summary: Clone helm
+  description: >-
+    This will create a new helm with the same configuration on the targeted
+    environment Id.
+  operationId: cloneHelm
+  parameters:
+    - $ref: ../components/parameters/helmId.yaml
+  tags:
+    - Helms
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CloneServiceRequest.yaml
+  responses:
+    '202':
+      description: Helm clone has been requested
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/HelmResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Operation is in progress

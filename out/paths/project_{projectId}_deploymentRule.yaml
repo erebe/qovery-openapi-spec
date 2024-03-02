@@ -1,0 +1,49 @@
+get:
+  summary: List project deployment rules
+  description: List project deployment rules
+  operationId: listProjectDeploymentRules
+  parameters:
+    - $ref: ../components/parameters/projectId.yaml
+  tags:
+    - Project Deployment Rule
+  responses:
+    '200':
+      description: Get project deployment rules
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProjectDeploymentRuleResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+post:
+  summary: Create a deployment rule
+  description: Create a deployment rule
+  operationId: createDeploymentRule
+  parameters:
+    - $ref: ../components/parameters/projectId.yaml
+  tags:
+    - Project Deployment Rule
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ProjectDeploymentRuleRequest.yaml
+  responses:
+    '201':
+      description: Create deployment rule
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ProjectDeploymentRuleResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

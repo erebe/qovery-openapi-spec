@@ -1,0 +1,812 @@
+openapi: 3.0.0
+info:
+  version: 1.0.3
+  title: Qovery API
+  description: >
+    - Qovery is the fastest way to deploy your full-stack apps on any Cloud
+    provider.
+
+    - ℹ️ The API is stable and still in development.
+  contact:
+    name: Qovery Product Team
+    url: https://www.qovery.com
+    email: support+api+documentation@qovery.com
+  x-logo:
+    url: >-
+      https://raw.githubusercontent.com/Qovery/public-resources/master/qovery_new_logo_white.svg
+    altText: Qovery
+servers:
+  - url: https://api.qovery.com
+security:
+  - bearerAuth: []
+  - ApiKeyAuth: []
+tags:
+  - name: Account
+  - name: Account Info
+  - name: Admin
+  - name: Application
+  - name: Application Actions
+  - name: Application Configuration
+  - name: Application Database
+  - name: Application Deployment Restriction
+  - name: Application Deployment History
+  - name: Application Environment Variable
+  - name: Application Logs
+  - name: Application Main Calls
+  - name: Application Secret
+  - name: Applications
+  - name: Container
+  - name: Container Actions
+  - name: Container Configuration
+  - name: Container Database
+  - name: Container Deployment History
+  - name: Container Environment Variable
+  - name: Container Logs
+  - name: Container Main Calls
+  - name: Container Registry
+  - name: Container Secret
+  - name: Containers
+  - name: Deployment Stage Main Calls
+  - name: Job
+  - name: Job Actions
+  - name: Job Configuration
+  - name: Job Database
+  - name: Job Deployment Restriction
+  - name: Job Deployment History
+  - name: Job Environment Variable
+  - name: Job Logs
+  - name: Job Main Calls
+  - name: Job Registry
+  - name: Job Secret
+  - name: Jobs
+  - name: Helm
+  - name: Helm Actions
+  - name: Helm Configuration
+  - name: Helm Database
+  - name: Helm Deployment Restriction
+  - name: Helm Deployment History
+  - name: Helm Logs
+  - name: Helm Main Calls
+  - name: Helm Repository
+  - name: Helms
+  - name: Backups
+  - name: Billing
+  - name: Cloud Provider
+  - name: Cloud Provider Credentials
+  - name: Clusters
+  - name: Custom Domain
+  - name: Container Custom Domain
+  - name: Database
+  - name: Database Actions
+  - name: Database Application
+  - name: Database Container
+  - name: Database Deployment History
+  - name: Database Main Calls
+  - name: Databases
+  - name: Environment
+  - name: Environment Actions
+  - name: Environment Deployment History
+  - name: Environment Deployment Rule
+  - name: Environment Logs
+  - name: Environment Main Calls
+  - name: Environment Secret
+  - name: Environment Variable
+  - name: Environments
+  - name: Git
+  - name: Github App
+  - name: Git repositories
+  - name: Members
+  - name: Organization
+  - name: Organization Account Git Repositories
+  - name: Organization Main Calls
+  - name: Organization Custom Role
+  - name: Organization Event
+  - name: Organization Api Token
+  - name: Organization Webhook
+  - name: Project
+  - name: Project Deployment Rule
+  - name: Project Environment Variable
+  - name: Project Main Calls
+  - name: Project Secret
+  - name: Projects
+  - name: Referral & Rewards
+  - name: Container Registries
+  - name: Helm Repositories
+  - name: User Sign Up
+  - name: Variable Main Calls
+  - name: Helm Custom Domain
+paths:
+  /organization:
+    $ref: paths/organization.yaml
+  /organization/{organizationId}:
+    $ref: paths/organization_{organizationId}.yaml
+  /organization/{organizationId}/apiToken:
+    $ref: paths/organization_{organizationId}_apiToken.yaml
+  /organization/{organizationId}/apiToken/{apiTokenId}:
+    $ref: paths/organization_{organizationId}_apiToken_{apiTokenId}.yaml
+  /organization/{organizationId}/availableRole:
+    $ref: paths/organization_{organizationId}_availableRole.yaml
+  /organization/{organizationId}/gitToken:
+    $ref: paths/organization_{organizationId}_gitToken.yaml
+  /organization/{organizationId}/gitToken/{gitTokenId}:
+    $ref: paths/organization_{organizationId}_gitToken_{gitTokenId}.yaml
+  /organization/{organizationId}/gitToken/{gitTokenId}/associatedServices:
+    $ref: >-
+      paths/organization_{organizationId}_gitToken_{gitTokenId}_associatedServices.yaml
+  /organization/{organizationId}/member:
+    $ref: paths/organization_{organizationId}_member.yaml
+  /organization/{organizationId}/inviteMember:
+    $ref: paths/organization_{organizationId}_inviteMember.yaml
+  /organization/{organizationId}/inviteMember/{inviteId}:
+    $ref: paths/organization_{organizationId}_inviteMember_{inviteId}.yaml
+  /organization/{organizationId}/transferOwnership:
+    $ref: paths/organization_{organizationId}_transferOwnership.yaml
+  /organization/{organizationId}/currentCost:
+    $ref: paths/organization_{organizationId}_currentCost.yaml
+  /organization/{organizationId}/creditCode:
+    $ref: paths/organization_{organizationId}_creditCode.yaml
+  /organization/{organizationId}/changePlan:
+    $ref: paths/organization_{organizationId}_changePlan.yaml
+  /organization/{organizationId}/cluster/{clusterId}/currentCost:
+    $ref: paths/organization_{organizationId}_cluster_{clusterId}_currentCost.yaml
+  /organization/{organizationId}/billingInfo:
+    $ref: paths/organization_{organizationId}_billingInfo.yaml
+  /organization/{organizationId}/billingStatus:
+    $ref: paths/organization_{organizationId}_billingStatus.yaml
+  /organization/{organizationId}/billingUsageReport:
+    $ref: paths/organization_{organizationId}_billingUsageReport.yaml
+  /organization/{organizationId}/billingExternalId:
+    $ref: paths/organization_{organizationId}_billingExternalId.yaml
+  /organization/{organizationId}/invoice:
+    $ref: paths/organization_{organizationId}_invoice.yaml
+  /organization/{organizationId}/invoice/{invoiceId}:
+    $ref: paths/organization_{organizationId}_invoice_{invoiceId}.yaml
+  /organization/{organizationId}/invoice/{invoiceId}/download:
+    $ref: paths/organization_{organizationId}_invoice_{invoiceId}_download.yaml
+  /organization/{organizationId}/downloadInvoices:
+    $ref: paths/organization_{organizationId}_downloadInvoices.yaml
+  /organization/{organizationId}/creditCard:
+    $ref: paths/organization_{organizationId}_creditCard.yaml
+  /organization/{organizationId}/creditCard/{creditCardId}:
+    $ref: paths/organization_{organizationId}_creditCard_{creditCardId}.yaml
+  /organization/{organizationId}/project:
+    $ref: paths/organization_{organizationId}_project.yaml
+  /organization/{organizationId}/project/stats:
+    $ref: paths/organization_{organizationId}_project_stats.yaml
+  /organization/{organizationId}/cluster:
+    $ref: paths/organization_{organizationId}_cluster.yaml
+  /organization/{organizationId}/cluster/status:
+    $ref: paths/organization_{organizationId}_cluster_status.yaml
+  /organization/{organizationId}/cluster/{clusterId}:
+    $ref: paths/organization_{organizationId}_cluster_{clusterId}.yaml
+  /organization/{organizationId}/cluster/{clusterId}/status:
+    $ref: paths/organization_{organizationId}_cluster_{clusterId}_status.yaml
+  /organization/{organizationId}/cluster/{clusterId}/installationHelmValues:
+    $ref: >-
+      paths/organization_{organizationId}_cluster_{clusterId}_installationHelmValues.yaml
+  /organization/{organizationId}/cluster/{clusterId}/kubeconfig:
+    $ref: paths/organization_{organizationId}_cluster_{clusterId}_kubeconfig.yaml
+  /organization/{organizationId}/cluster/{clusterId}/advancedSettings:
+    $ref: >-
+      paths/organization_{organizationId}_cluster_{clusterId}_advancedSettings.yaml
+  /organization/{organizationId}/cluster/{clusterId}/routingTable:
+    $ref: paths/organization_{organizationId}_cluster_{clusterId}_routingTable.yaml
+  /organization/{organizationId}/cluster/{clusterId}/logs:
+    $ref: paths/organization_{organizationId}_cluster_{clusterId}_logs.yaml
+  /organization/{organizationId}/aws/credentials:
+    $ref: paths/organization_{organizationId}_aws_credentials.yaml
+  /organization/{organizationId}/aws/credentials/{credentialsId}:
+    $ref: paths/organization_{organizationId}_aws_credentials_{credentialsId}.yaml
+  /organization/{organizationId}/scaleway/credentials:
+    $ref: paths/organization_{organizationId}_scaleway_credentials.yaml
+  /organization/{organizationId}/scaleway/credentials/{credentialsId}:
+    $ref: >-
+      paths/organization_{organizationId}_scaleway_credentials_{credentialsId}.yaml
+  /organization/{organizationId}/gcp/credentials:
+    $ref: paths/organization_{organizationId}_gcp_credentials.yaml
+  /organization/{organizationId}/gcp/credentials/{credentialsId}:
+    $ref: paths/organization_{organizationId}_gcp_credentials_{credentialsId}.yaml
+  /organization/{organizationId}/github/connect:
+    $ref: paths/organization_{organizationId}_github_connect.yaml
+  /organization/{organizationId}/github/disconnect:
+    $ref: paths/organization_{organizationId}_github_disconnect.yaml
+  /organization/{organizationId}/account/gitAuthProvider:
+    $ref: paths/organization_{organizationId}_account_gitAuthProvider.yaml
+  /organization/{organizationId}/account/github/repository:
+    $ref: paths/organization_{organizationId}_account_github_repository.yaml
+  /organization/{organizationId}/account/github/repository/branch:
+    $ref: paths/organization_{organizationId}_account_github_repository_branch.yaml
+  /organization/{organizationId}/account/gitlab/repository:
+    $ref: paths/organization_{organizationId}_account_gitlab_repository.yaml
+  /organization/{organizationId}/account/gitlab/repository/branch:
+    $ref: paths/organization_{organizationId}_account_gitlab_repository_branch.yaml
+  /organization/{organizationId}/account/bitbucket/repository:
+    $ref: paths/organization_{organizationId}_account_bitbucket_repository.yaml
+  /organization/{organizationId}/account/bitbucket/repository/branch:
+    $ref: >-
+      paths/organization_{organizationId}_account_bitbucket_repository_branch.yaml
+  /organization/{organizationId}/webhook:
+    $ref: paths/organization_{organizationId}_webhook.yaml
+  /organization/{organizationId}/webhook/{webhookId}:
+    $ref: paths/organization_{organizationId}_webhook_{webhookId}.yaml
+  /organization/{organizationId}/customRole:
+    $ref: paths/organization_{organizationId}_customRole.yaml
+  /organization/{organizationId}/customRole/{customRoleId}:
+    $ref: paths/organization_{organizationId}_customRole_{customRoleId}.yaml
+  /organization/{organizationId}/events:
+    $ref: paths/organization_{organizationId}_events.yaml
+  /organization/{organizationId}/targets:
+    $ref: paths/organization_{organizationId}_targets.yaml
+  /cloudProvider:
+    $ref: paths/cloudProvider.yaml
+  /aws/region:
+    $ref: paths/aws_region.yaml
+  /aws/clusterFeature:
+    $ref: paths/aws_clusterFeature.yaml
+  /aws/instanceType:
+    $ref: paths/aws_instanceType.yaml
+  /aws/managedDatabase/type:
+    $ref: paths/aws_managedDatabase_type.yaml
+  /aws/managedDatabase/instanceType/{region}/{databaseType}:
+    $ref: paths/aws_managedDatabase_instanceType_{region}_{databaseType}.yaml
+  /aws/ec2/instanceType/{region}:
+    $ref: paths/aws_ec2_instanceType_{region}.yaml
+  /aws/eks/instanceType/{region}:
+    $ref: paths/aws_eks_instanceType_{region}.yaml
+  /scaleway/region:
+    $ref: paths/scaleway_region.yaml
+  /scaleway/clusterFeature:
+    $ref: paths/scaleway_clusterFeature.yaml
+  /scaleway/instanceType:
+    $ref: paths/scaleway_instanceType.yaml
+  /scaleway/managedDatabase/type:
+    $ref: paths/scaleway_managedDatabase_type.yaml
+  /scaleway/managedDatabase/instanceType/{zone}/{databaseType}:
+    $ref: paths/scaleway_managedDatabase_instanceType_{zone}_{databaseType}.yaml
+  /scaleway/instanceType/{zone}:
+    $ref: paths/scaleway_instanceType_{zone}.yaml
+  /gcp/region:
+    $ref: paths/gcp_region.yaml
+  /gcp/clusterFeature:
+    $ref: paths/gcp_clusterFeature.yaml
+  /gcp/instanceType/{region}:
+    $ref: paths/gcp_instanceType_{region}.yaml
+  /organization/{organizationId}/cluster/{clusterId}/cloudProviderInfo:
+    $ref: >-
+      paths/organization_{organizationId}_cluster_{clusterId}_cloudProviderInfo.yaml
+  /organization/{organizationId}/cluster/{clusterId}/isReady:
+    $ref: paths/organization_{organizationId}_cluster_{clusterId}_isReady.yaml
+  /organization/{organizationId}/cluster/{clusterId}/deploy:
+    $ref: paths/organization_{organizationId}_cluster_{clusterId}_deploy.yaml
+  /organization/{organizationId}/cluster/{clusterId}/stop:
+    $ref: paths/organization_{organizationId}_cluster_{clusterId}_stop.yaml
+  /organization/{organizationId}/containerRegistry:
+    $ref: paths/organization_{organizationId}_containerRegistry.yaml
+  /organization/{organizationId}/containerRegistry/{containerRegistryId}:
+    $ref: >-
+      paths/organization_{organizationId}_containerRegistry_{containerRegistryId}.yaml
+  /organization/{organizationId}/containerRegistry/{containerRegistryId}/container/status:
+    $ref: >-
+      paths/organization_{organizationId}_containerRegistry_{containerRegistryId}_container_status.yaml
+  /availableContainerRegistry:
+    $ref: paths/availableContainerRegistry.yaml
+  /availableHelmRepository:
+    $ref: paths/availableHelmRepository.yaml
+  /organization/{organizationId}/helmRepository:
+    $ref: paths/organization_{organizationId}_helmRepository.yaml
+  /organization/{organizationId}/helmRepository/{helmRepositoryId}:
+    $ref: paths/organization_{organizationId}_helmRepository_{helmRepositoryId}.yaml
+  /project/{projectId}:
+    $ref: paths/project_{projectId}.yaml
+  /project/{projectId}/deploymentRule:
+    $ref: paths/project_{projectId}_deploymentRule.yaml
+  /project/{projectId}/deploymentRule/{deploymentRuleId}:
+    $ref: paths/project_{projectId}_deploymentRule_{deploymentRuleId}.yaml
+  /project/{projectId}/deploymentRule/order:
+    $ref: paths/project_{projectId}_deploymentRule_order.yaml
+  /project/{projectId}/environment:
+    $ref: paths/project_{projectId}_environment.yaml
+  /project/{projectId}/environmentVariable:
+    $ref: paths/project_{projectId}_environmentVariable.yaml
+  /project/{projectId}/environmentVariable/{environmentVariableId}:
+    $ref: paths/project_{projectId}_environmentVariable_{environmentVariableId}.yaml
+  /project/{projectId}/environmentVariable/{environmentVariableId}/override:
+    $ref: >-
+      paths/project_{projectId}_environmentVariable_{environmentVariableId}_override.yaml
+  /project/{projectId}/environmentVariable/{environmentVariableId}/alias:
+    $ref: >-
+      paths/project_{projectId}_environmentVariable_{environmentVariableId}_alias.yaml
+  /project/{projectId}/secret:
+    $ref: paths/project_{projectId}_secret.yaml
+  /project/{projectId}/secret/{secretId}:
+    $ref: paths/project_{projectId}_secret_{secretId}.yaml
+  /project/{projectId}/secret/{secretId}/override:
+    $ref: paths/project_{projectId}_secret_{secretId}_override.yaml
+  /project/{projectId}/secret/{secretId}/alias:
+    $ref: paths/project_{projectId}_secret_{secretId}_alias.yaml
+  /project/{projectId}/environment/status:
+    $ref: paths/project_{projectId}_environment_status.yaml
+  /project/{projectId}/environment/stats:
+    $ref: paths/project_{projectId}_environment_stats.yaml
+  /environment/{environmentId}:
+    $ref: paths/environment_{environmentId}.yaml
+  /environment/{environmentId}/status:
+    $ref: paths/environment_{environmentId}_status.yaml
+  /environment/{environmentId}/statuses:
+    $ref: paths/environment_{environmentId}_statuses.yaml
+  /environment/{environmentId}/statusesWithStages:
+    $ref: paths/environment_{environmentId}_statusesWithStages.yaml
+  /environment/{environmentId}/deploymentStage:
+    $ref: paths/environment_{environmentId}_deploymentStage.yaml
+  /deploymentStage/{deploymentStageId}:
+    $ref: paths/deploymentStage_{deploymentStageId}.yaml
+  /deploymentStage/{deploymentStageId}/service/{serviceId}:
+    $ref: paths/deploymentStage_{deploymentStageId}_service_{serviceId}.yaml
+  /deploymentStage/{deploymentStageId}/moveBefore/{stageId}:
+    $ref: paths/deploymentStage_{deploymentStageId}_moveBefore_{stageId}.yaml
+  /deploymentStage/{deploymentStageId}/moveAfter/{stageId}:
+    $ref: paths/deploymentStage_{deploymentStageId}_moveAfter_{stageId}.yaml
+  /environment/{environmentId}/deploymentRule:
+    $ref: paths/environment_{environmentId}_deploymentRule.yaml
+  /environment/{environmentId}/deploymentRule/{deploymentRuleId}:
+    $ref: paths/environment_{environmentId}_deploymentRule_{deploymentRuleId}.yaml
+  /environment/{environmentId}/deploy:
+    $ref: paths/environment_{environmentId}_deploy.yaml
+  /environment/{environmentId}/stop:
+    $ref: paths/environment_{environmentId}_stop.yaml
+  /environment/{environmentId}/restart:
+    $ref: paths/environment_{environmentId}_restart.yaml
+  /environment/{environmentId}/cancelDeployment:
+    $ref: paths/environment_{environmentId}_cancelDeployment.yaml
+  /environment/{environmentId}/clone:
+    $ref: paths/environment_{environmentId}_clone.yaml
+  /environment/{environmentId}/application:
+    $ref: paths/environment_{environmentId}_application.yaml
+  /environment/{environmentId}/application/status:
+    $ref: paths/environment_{environmentId}_application_status.yaml
+  /environment/{environmentId}/application/supportedLanguage:
+    $ref: paths/environment_{environmentId}_application_supportedLanguage.yaml
+  /environment/{environmentId}/application/deploy:
+    $ref: paths/environment_{environmentId}_application_deploy.yaml
+  /environment/{environmentId}/container:
+    $ref: paths/environment_{environmentId}_container.yaml
+  /environment/{environmentId}/container/status:
+    $ref: paths/environment_{environmentId}_container_status.yaml
+  /environment/{environmentId}/service/deploy:
+    $ref: paths/environment_{environmentId}_service_deploy.yaml
+  /environment/{environmentId}/service/restart-service:
+    $ref: paths/environment_{environmentId}_service_restart-service.yaml
+  /environment/{environmentId}/service/stop:
+    $ref: paths/environment_{environmentId}_service_stop.yaml
+  /environment/{environmentId}/service/delete:
+    $ref: paths/environment_{environmentId}_service_delete.yaml
+  /organization/{organizationId}/container/deploy:
+    $ref: paths/organization_{organizationId}_container_deploy.yaml
+  /organization/{organizationId}/container/preview:
+    $ref: paths/organization_{organizationId}_container_preview.yaml
+  /organization/{organizationId}/job/deploy:
+    $ref: paths/organization_{organizationId}_job_deploy.yaml
+  /environment/{environmentId}/log:
+    $ref: paths/environment_{environmentId}_log.yaml
+  /environment/{environmentId}/logs:
+    $ref: paths/environment_{environmentId}_logs.yaml
+  /environment/{environmentId}/deploymentHistory:
+    $ref: paths/environment_{environmentId}_deploymentHistory.yaml
+  /environment/{environmentId}/environmentVariable:
+    $ref: paths/environment_{environmentId}_environmentVariable.yaml
+  /environment/{environmentId}/environmentVariable/{environmentVariableId}:
+    $ref: >-
+      paths/environment_{environmentId}_environmentVariable_{environmentVariableId}.yaml
+  /environment/{environmentId}/environmentVariable/{environmentVariableId}/override:
+    $ref: >-
+      paths/environment_{environmentId}_environmentVariable_{environmentVariableId}_override.yaml
+  /environment/{environmentId}/environmentVariable/{environmentVariableId}/alias:
+    $ref: >-
+      paths/environment_{environmentId}_environmentVariable_{environmentVariableId}_alias.yaml
+  /environment/{environmentId}/secret:
+    $ref: paths/environment_{environmentId}_secret.yaml
+  /environment/{environmentId}/secret/{secretId}:
+    $ref: paths/environment_{environmentId}_secret_{secretId}.yaml
+  /environment/{environmentId}/secret/{secretId}/override:
+    $ref: paths/environment_{environmentId}_secret_{secretId}_override.yaml
+  /environment/{environmentId}/secret/{secretId}/alias:
+    $ref: paths/environment_{environmentId}_secret_{secretId}_alias.yaml
+  /environment/{environmentId}/databaseConfiguration:
+    $ref: paths/environment_{environmentId}_databaseConfiguration.yaml
+  /environment/{environmentId}/terraformExport:
+    $ref: paths/environment_{environmentId}_terraformExport.yaml
+  /defaultApplicationAdvancedSettings:
+    $ref: paths/defaultApplicationAdvancedSettings.yaml
+  /defaultClusterAdvancedSettings:
+    $ref: paths/defaultClusterAdvancedSettings.yaml
+  /defaultContainerAdvancedSettings:
+    $ref: paths/defaultContainerAdvancedSettings.yaml
+  /defaultJobAdvancedSettings:
+    $ref: paths/defaultJobAdvancedSettings.yaml
+  /defaultHelmAdvancedSettings:
+    $ref: paths/defaultHelmAdvancedSettings.yaml
+  /application/{applicationId}:
+    $ref: paths/application_{applicationId}.yaml
+  /application/{applicationId}/status:
+    $ref: paths/application_{applicationId}_status.yaml
+  /application/{applicationId}/deploymentRestriction:
+    $ref: paths/application_{applicationId}_deploymentRestriction.yaml
+  /application/{applicationId}/deploymentRestriction/{deploymentRestrictionId}:
+    $ref: >-
+      paths/application_{applicationId}_deploymentRestriction_{deploymentRestrictionId}.yaml
+  /application/{applicationId}/contributor:
+    $ref: paths/application_{applicationId}_contributor.yaml
+  /application/{applicationId}/commit:
+    $ref: paths/application_{applicationId}_commit.yaml
+  /application/{applicationId}/deploy:
+    $ref: paths/application_{applicationId}_deploy.yaml
+  /application/{applicationId}/stop:
+    $ref: paths/application_{applicationId}_stop.yaml
+  /application/{applicationId}/restart:
+    $ref: paths/application_{applicationId}_restart.yaml
+  /application/{applicationId}/restart-service:
+    $ref: paths/application_{applicationId}_restart-service.yaml
+  /application/{applicationId}/deploymentHistory:
+    $ref: paths/application_{applicationId}_deploymentHistory.yaml
+  /application/{applicationId}/environmentVariable:
+    $ref: paths/application_{applicationId}_environmentVariable.yaml
+  /application/{applicationId}/environmentVariable/import:
+    $ref: paths/application_{applicationId}_environmentVariable_import.yaml
+  /application/{applicationId}/environmentVariable/{environmentVariableId}:
+    $ref: >-
+      paths/application_{applicationId}_environmentVariable_{environmentVariableId}.yaml
+  /application/{applicationId}/environmentVariable/{environmentVariableId}/override:
+    $ref: >-
+      paths/application_{applicationId}_environmentVariable_{environmentVariableId}_override.yaml
+  /application/{applicationId}/environmentVariable/{environmentVariableId}/alias:
+    $ref: >-
+      paths/application_{applicationId}_environmentVariable_{environmentVariableId}_alias.yaml
+  /application/{applicationId}/secret:
+    $ref: paths/application_{applicationId}_secret.yaml
+  /application/{applicationId}/secret/{secretId}:
+    $ref: paths/application_{applicationId}_secret_{secretId}.yaml
+  /application/{applicationId}/secret/{secretId}/override:
+    $ref: paths/application_{applicationId}_secret_{secretId}_override.yaml
+  /application/{applicationId}/secret/{secretId}/alias:
+    $ref: paths/application_{applicationId}_secret_{secretId}_alias.yaml
+  /application/{applicationId}/customDomain:
+    $ref: paths/application_{applicationId}_customDomain.yaml
+  /application/{applicationId}/customDomain/{customDomainId}:
+    $ref: paths/application_{applicationId}_customDomain_{customDomainId}.yaml
+  /application/{applicationId}/customDomain/{customDomainId}/status:
+    $ref: >-
+      paths/application_{applicationId}_customDomain_{customDomainId}_status.yaml
+  /application/{applicationId}/log:
+    $ref: paths/application_{applicationId}_log.yaml
+  /application/{applicationId}/network:
+    $ref: paths/application_{applicationId}_network.yaml
+  /application/{applicationId}/link:
+    $ref: paths/application_{applicationId}_link.yaml
+  /application/{applicationId}/advancedSettings:
+    $ref: paths/application_{applicationId}_advancedSettings.yaml
+  /application/{applicationId}/clone:
+    $ref: paths/application_{applicationId}_clone.yaml
+  /container/{containerId}:
+    $ref: paths/container_{containerId}.yaml
+  /container/{containerId}/status:
+    $ref: paths/container_{containerId}_status.yaml
+  /container/{containerId}/deploymentHistory:
+    $ref: paths/container_{containerId}_deploymentHistory.yaml
+  /container/{containerId}/advancedSettings:
+    $ref: paths/container_{containerId}_advancedSettings.yaml
+  /container/{containerId}/deploy:
+    $ref: paths/container_{containerId}_deploy.yaml
+  /container/{containerId}/stop:
+    $ref: paths/container_{containerId}_stop.yaml
+  /container/{containerId}/restart:
+    $ref: paths/container_{containerId}_restart.yaml
+  /container/{containerId}/restart-service:
+    $ref: paths/container_{containerId}_restart-service.yaml
+  /container/{containerId}/environmentVariable:
+    $ref: paths/container_{containerId}_environmentVariable.yaml
+  /container/{containerId}/environmentVariable/import:
+    $ref: paths/container_{containerId}_environmentVariable_import.yaml
+  /container/{containerId}/environmentVariable/{environmentVariableId}:
+    $ref: >-
+      paths/container_{containerId}_environmentVariable_{environmentVariableId}.yaml
+  /container/{containerId}/environmentVariable/{environmentVariableId}/override:
+    $ref: >-
+      paths/container_{containerId}_environmentVariable_{environmentVariableId}_override.yaml
+  /container/{containerId}/environmentVariable/{environmentVariableId}/alias:
+    $ref: >-
+      paths/container_{containerId}_environmentVariable_{environmentVariableId}_alias.yaml
+  /container/{containerId}/secret:
+    $ref: paths/container_{containerId}_secret.yaml
+  /container/{containerId}/secret/{secretId}:
+    $ref: paths/container_{containerId}_secret_{secretId}.yaml
+  /container/{containerId}/secret/{secretId}/override:
+    $ref: paths/container_{containerId}_secret_{secretId}_override.yaml
+  /container/{containerId}/secret/{secretId}/alias:
+    $ref: paths/container_{containerId}_secret_{secretId}_alias.yaml
+  /container/{containerId}/customDomain:
+    $ref: paths/container_{containerId}_customDomain.yaml
+  /container/{containerId}/customDomain/{customDomainId}:
+    $ref: paths/container_{containerId}_customDomain_{customDomainId}.yaml
+  /container/{containerId}/customDomain/{customDomainId}/status:
+    $ref: paths/container_{containerId}_customDomain_{customDomainId}_status.yaml
+  /container/{containerId}/log:
+    $ref: paths/container_{containerId}_log.yaml
+  /container/{containerId}/network:
+    $ref: paths/container_{containerId}_network.yaml
+  /container/{containerId}/link:
+    $ref: paths/container_{containerId}_link.yaml
+  /container/{containerId}/clone:
+    $ref: paths/container_{containerId}_clone.yaml
+  /environment/{environmentId}/database:
+    $ref: paths/environment_{environmentId}_database.yaml
+  /environment/{environmentId}/database/status:
+    $ref: paths/environment_{environmentId}_database_status.yaml
+  /database/{databaseId}:
+    $ref: paths/database_{databaseId}.yaml
+  /database/{databaseId}/status:
+    $ref: paths/database_{databaseId}_status.yaml
+  /database/{databaseId}/version:
+    $ref: paths/database_{databaseId}_version.yaml
+  /database/{databaseId}/masterCredentials:
+    $ref: paths/database_{databaseId}_masterCredentials.yaml
+  /database/{databaseId}/application:
+    $ref: paths/database_{databaseId}_application.yaml
+  /database/{databaseId}/application/{targetApplicationId}:
+    $ref: paths/database_{databaseId}_application_{targetApplicationId}.yaml
+  /database/{databaseId}/restart:
+    $ref: paths/database_{databaseId}_restart.yaml
+  /database/{databaseId}/restart-service:
+    $ref: paths/database_{databaseId}_restart-service.yaml
+  /database/{databaseId}/stop:
+    $ref: paths/database_{databaseId}_stop.yaml
+  /database/{databaseId}/deploy:
+    $ref: paths/database_{databaseId}_deploy.yaml
+  /database/{databaseId}/deploymentHistory:
+    $ref: paths/database_{databaseId}_deploymentHistory.yaml
+  /database/{databaseId}/backup:
+    $ref: paths/database_{databaseId}_backup.yaml
+  /database/{databaseId}/backup/{backupId}:
+    $ref: paths/database_{databaseId}_backup_{backupId}.yaml
+  /database/{databaseId}/clone:
+    $ref: paths/database_{databaseId}_clone.yaml
+  /account:
+    $ref: paths/account.yaml
+  /account/gitAuthProvider:
+    $ref: paths/account_gitAuthProvider.yaml
+  /account/github/repository:
+    $ref: paths/account_github_repository.yaml
+  /account/github/repository/branch:
+    $ref: paths/account_github_repository_branch.yaml
+  /account/gitlab/repository:
+    $ref: paths/account_gitlab_repository.yaml
+  /account/gitlab/repository/branch:
+    $ref: paths/account_gitlab_repository_branch.yaml
+  /account/bitbucket/repository:
+    $ref: paths/account_bitbucket_repository.yaml
+  /account/bitbucket/repository/branch:
+    $ref: paths/account_bitbucket_repository_branch.yaml
+  /account/referral:
+    $ref: paths/account_referral.yaml
+  /account/rewardClaim:
+    $ref: paths/account_rewardClaim.yaml
+  /admin/userSignUp:
+    $ref: paths/admin_userSignUp.yaml
+  /environment/{environmentId}/helm:
+    $ref: paths/environment_{environmentId}_helm.yaml
+  /environment/{environmentId}/helmDefaultValues:
+    $ref: paths/environment_{environmentId}_helmDefaultValues.yaml
+  /environment/{environmentId}/helm/status:
+    $ref: paths/environment_{environmentId}_helm_status.yaml
+  /helm/{helmId}:
+    $ref: paths/helm_{helmId}.yaml
+  /helm/{helmId}/commit:
+    $ref: paths/helm_{helmId}_commit.yaml
+  /helm/{helmId}/advancedSettings:
+    $ref: paths/helm_{helmId}_advancedSettings.yaml
+  /helm/{helmId}/deploy:
+    $ref: paths/helm_{helmId}_deploy.yaml
+  /helm/{helmId}/restart:
+    $ref: paths/helm_{helmId}_restart.yaml
+  /helm/{helmId}/stop:
+    $ref: paths/helm_{helmId}_stop.yaml
+  /helm/{helmId}/status:
+    $ref: paths/helm_{helmId}_status.yaml
+  /helm/{helmId}/deploymentHistory:
+    $ref: paths/helm_{helmId}_deploymentHistory.yaml
+  /helm/{helmId}/deploymentRestriction:
+    $ref: paths/helm_{helmId}_deploymentRestriction.yaml
+  /helm/{helmId}/deploymentRestriction/{deploymentRestrictionId}:
+    $ref: paths/helm_{helmId}_deploymentRestriction_{deploymentRestrictionId}.yaml
+  /helm/{helmId}/clone:
+    $ref: paths/helm_{helmId}_clone.yaml
+  /helm/{helmId}/link:
+    $ref: paths/helm_{helmId}_link.yaml
+  /helm/{helmId}/customDomain:
+    $ref: paths/helm_{helmId}_customDomain.yaml
+  /helm/{helmId}/customDomain/{customDomainId}:
+    $ref: paths/helm_{helmId}_customDomain_{customDomainId}.yaml
+  /environment/{environmentId}/job:
+    $ref: paths/environment_{environmentId}_job.yaml
+  /environment/{environmentId}/job/status:
+    $ref: paths/environment_{environmentId}_job_status.yaml
+  /job/{jobId}:
+    $ref: paths/job_{jobId}.yaml
+  /job/{jobId}/advancedSettings:
+    $ref: paths/job_{jobId}_advancedSettings.yaml
+  /job/{jobId}/deploy:
+    $ref: paths/job_{jobId}_deploy.yaml
+  /job/{jobId}/restart:
+    $ref: paths/job_{jobId}_restart.yaml
+  /job/{jobId}/stop:
+    $ref: paths/job_{jobId}_stop.yaml
+  /job/{jobId}/status:
+    $ref: paths/job_{jobId}_status.yaml
+  /job/{jobId}/deploymentHistory:
+    $ref: paths/job_{jobId}_deploymentHistory.yaml
+  /job/{jobId}/deploymentRestriction:
+    $ref: paths/job_{jobId}_deploymentRestriction.yaml
+  /job/{jobId}/deploymentRestriction/{deploymentRestrictionId}:
+    $ref: paths/job_{jobId}_deploymentRestriction_{deploymentRestrictionId}.yaml
+  /job/{jobId}/environmentVariable:
+    $ref: paths/job_{jobId}_environmentVariable.yaml
+  /job/{jobId}/environmentVariable/import:
+    $ref: paths/job_{jobId}_environmentVariable_import.yaml
+  /job/{jobId}/environmentVariable/{environmentVariableId}:
+    $ref: paths/job_{jobId}_environmentVariable_{environmentVariableId}.yaml
+  /job/{jobId}/environmentVariable/{environmentVariableId}/override:
+    $ref: >-
+      paths/job_{jobId}_environmentVariable_{environmentVariableId}_override.yaml
+  /job/{jobId}/environmentVariable/{environmentVariableId}/alias:
+    $ref: paths/job_{jobId}_environmentVariable_{environmentVariableId}_alias.yaml
+  /job/{jobId}/secret:
+    $ref: paths/job_{jobId}_secret.yaml
+  /job/{jobId}/secret/{secretId}:
+    $ref: paths/job_{jobId}_secret_{secretId}.yaml
+  /job/{jobId}/secret/{secretId}/override:
+    $ref: paths/job_{jobId}_secret_{secretId}_override.yaml
+  /job/{jobId}/secret/{secretId}/alias:
+    $ref: paths/job_{jobId}_secret_{secretId}_alias.yaml
+  /job/{jobId}/commit:
+    $ref: paths/job_{jobId}_commit.yaml
+  /job/{jobId}/clone:
+    $ref: paths/job_{jobId}_clone.yaml
+  /service/{serviceId}/deploymentStage:
+    $ref: paths/service_{serviceId}_deploymentStage.yaml
+  /variable:
+    $ref: paths/variable.yaml
+  /variable/{variableId}/alias:
+    $ref: paths/variable_{variableId}_alias.yaml
+  /variable/{variableId}/override:
+    $ref: paths/variable_{variableId}_override.yaml
+  /variable/{variableId}:
+    $ref: paths/variable_{variableId}.yaml
+  /variable/import:
+    $ref: paths/variable_import.yaml
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: >-
+        JWT tokens should be used with OIDC account (human to machine). JWT
+        tokens used by the Qovery console to communicate with the API have a
+        TTL. Curl Example ' curl https://console.qovery.com/organization -H
+        "Authorization: Bearer $qovery_token" '
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        Token API are generated by Qovery to manage machine to machine
+        interaction and do not have a TTL. Curl Example ' curl
+        https://console.qovery.com/organization -H "Authorization: Token
+        $qovery_token" '
+x-tagGroups:
+  - name: Organization
+    tags:
+      - Organization Main Calls
+      - Organization Api Token
+      - Organization Account Git Repositories
+      - Organization Webhook
+      - Organization Custom Role
+      - Organization Event
+      - Projects
+      - Members
+      - Billing
+      - Clusters
+      - Cloud Provider
+      - Cloud Provider Credentials
+      - Github App
+      - Container Registries
+      - Helm Repositories
+  - name: Project
+    tags:
+      - Project Main Calls
+      - Environments
+      - Project Deployment Rule
+      - Project Environment Variable
+      - Project Secret
+  - name: Environment
+    tags:
+      - Environment Main Calls
+      - Applications
+      - Containers
+      - Databases
+      - Jobs
+      - Helms
+      - Environment Actions
+      - Environment Logs
+      - Environment Deployment History
+      - Environment Deployment Rule
+      - Environment Variable
+      - Environment Secret
+      - Environment Export
+  - name: Deployment Stage
+    tags:
+      - Deployment Stage Main Calls
+  - name: Application
+    tags:
+      - Application Main Calls
+      - Application Actions
+      - Application Configuration
+      - Custom Domain
+      - Application Database
+      - Application Logs
+      - Application Deployment Restriction
+      - Application Deployment History
+      - Application Environment Variable
+      - Application Secret
+  - name: Container
+    tags:
+      - Container Main Calls
+      - Container Actions
+      - Container Configuration
+      - Container Custom Domain
+      - Container Database
+      - Container Logs
+      - Container Deployment History
+      - Container Environment Variable
+      - Container Secret
+  - name: Database
+    tags:
+      - Database Main Calls
+      - Database Actions
+      - Database Applications
+      - Database Deployment History
+      - Database Containers
+      - Database Application
+      - Database Container
+      - Backups
+  - name: Job
+    tags:
+      - Job Main Calls
+      - Job Actions
+      - Job Configuration
+      - Job Custom Domain
+      - Job Deployment Restriction
+      - Job Deployment History
+      - Job Environment Variable
+      - Job Secret
+  - name: Helm
+    tags:
+      - Helm Main Calls
+      - Helm Actions
+      - Helm Configuration
+      - Helm Custom Domain
+      - Helm Deployment Restriction
+      - Helm Deployment History
+  - name: Account
+    tags:
+      - Account Info
+      - Git repositories
+      - Referral & Rewards
+  - name: Git
+    tags:
+      - Git repositories
+  - name: Variable
+    tags:
+      - Variable Main Calls
+  - name: Admin
+    tags:
+      - User Sign Up

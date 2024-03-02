@@ -1,0 +1,47 @@
+get:
+  summary: List organization clusters
+  operationId: listOrganizationCluster
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Clusters
+  responses:
+    '200':
+      description: List clusters
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ClusterResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+post:
+  summary: Create a cluster
+  operationId: createCluster
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Clusters
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ClusterRequest.yaml
+  responses:
+    '201':
+      description: Create cluster
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ClusterResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

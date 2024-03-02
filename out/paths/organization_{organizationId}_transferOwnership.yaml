@@ -1,0 +1,23 @@
+post:
+  summary: Transfer organization ownership to another user
+  operationId: postOrganizationTransferOwnership
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Members
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/TransferOwnershipRequest.yaml
+  responses:
+    '204':
+      $ref: ../components/responses/NoContent.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

@@ -1,0 +1,8 @@
+type: object
+properties:
+  database_type:
+    $ref: ./DatabaseType.yaml
+  version:
+    type: array
+    items:
+      $ref: ./DatabaseVersionMode.yaml

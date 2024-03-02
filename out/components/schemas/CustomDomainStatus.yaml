@@ -1,0 +1,4 @@
+type: string
+enum:
+  - VALIDATION_PENDING
+example: VALIDATION_PENDING

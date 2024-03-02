@@ -1,0 +1,47 @@
+get:
+  summary: List organization container registries
+  operationId: listContainerRegistry
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Container Registries
+  responses:
+    '200':
+      description: List container registries
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ContainerRegistryResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+post:
+  summary: Create a container registry
+  operationId: createContainerRegistry
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Container Registries
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ContainerRegistryRequest.yaml
+  responses:
+    '201':
+      description: Create a Container Registry
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ContainerRegistryResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

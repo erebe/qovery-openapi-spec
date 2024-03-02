@@ -1,0 +1,20 @@
+get:
+  summary: List applications using the database
+  operationId: listDatabaseApplication
+  parameters:
+    - $ref: ../components/parameters/databaseId.yaml
+  tags:
+    - Database Application
+  responses:
+    '200':
+      description: List linked applications
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ApplicationResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

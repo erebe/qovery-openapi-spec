@@ -1,0 +1,17 @@
+delete:
+  summary: 'Remove an application from this database '
+  operationId: removeApplicationFromDatabase
+  parameters:
+    - $ref: ../components/parameters/databaseId.yaml
+    - $ref: ../components/parameters/targetApplicationId.yaml
+  tags:
+    - Database Application
+  responses:
+    '204':
+      $ref: ../components/responses/NoContent.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

@@ -1,0 +1,21 @@
+get:
+  summary: List logs
+  operationId: listApplicationLog
+  description: This will list the last 1000 logs of the application
+  parameters:
+    - $ref: ../components/parameters/applicationId.yaml
+  tags:
+    - Application Logs
+  responses:
+    '200':
+      description: List logs
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/LogResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

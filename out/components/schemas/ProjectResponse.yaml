@@ -1,0 +1,13 @@
+allOf:
+  - $ref: ./BaseResponse.yaml
+  - type: object
+    required:
+      - name
+      - organization
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      organization:
+        $ref: ./ReferenceObject.yaml

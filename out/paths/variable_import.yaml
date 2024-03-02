@@ -1,0 +1,40 @@
+post:
+  summary: Import variables
+  description: Import environment variables in a defined scope, with a defined visibility.
+  operationId: importEnvironmentVariables
+  parameters:
+    - in: query
+      name: service_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+      description: service id
+    - in: query
+      name: service_type
+      required: true
+      schema:
+        $ref: ../components/schemas/ServiceTypeForVariable.yaml
+      description: service type
+  tags:
+    - Variable Main Calls
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/VariableImportRequest.yaml
+  responses:
+    '201':
+      description: Import environment variables
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/VariableImportResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

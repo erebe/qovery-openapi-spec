@@ -1,0 +1,23 @@
+get:
+  summary: List database deploys
+  description: By default it returns the 20 last results. The response is paginated.
+  operationId: listDatabaseDeploymentHistory
+  parameters:
+    - $ref: ../components/parameters/databaseId.yaml
+    - $ref: ../components/parameters/startId.yaml
+  tags:
+    - Database Deployment History
+  responses:
+    '200':
+      description: List deployment history
+      content:
+        application/json:
+          schema:
+            $ref: >-
+              ../components/schemas/DeploymentHistoryDatabasePaginatedResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

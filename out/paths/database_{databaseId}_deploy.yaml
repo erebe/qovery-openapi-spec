@@ -1,0 +1,22 @@
+post:
+  summary: 'Deploy database '
+  operationId: deployDatabase
+  parameters:
+    - $ref: ../components/parameters/databaseId.yaml
+  tags:
+    - Database Actions
+  responses:
+    '202':
+      description: 'Deploy database '
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Status.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Operation is in progress

@@ -1,0 +1,3 @@
+allOf:
+  - $ref: ./BillingStart.yaml
+  - $ref: ./BillingEnd.yaml

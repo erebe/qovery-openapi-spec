@@ -1,0 +1,21 @@
+put:
+  summary: Move deployment stage after requested stage
+  operationId: MoveAfterDeploymentStage
+  parameters:
+    - $ref: ../components/parameters/deploymentStageId.yaml
+    - $ref: ../components/parameters/stageId.yaml
+  tags:
+    - Deployment Stage Main Calls
+  responses:
+    '200':
+      description: List deployment stage
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DeploymentStageResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

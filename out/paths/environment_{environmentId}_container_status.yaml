@@ -1,0 +1,21 @@
+get:
+  summary: List all environment container statuses
+  description: Returns a list of containers with only their id and status.
+  operationId: getEnvironmentContainerStatus
+  parameters:
+    - $ref: ../components/parameters/environmentId.yaml
+  tags:
+    - Containers
+  responses:
+    '200':
+      description: Get status
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ReferenceObjectStatusResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

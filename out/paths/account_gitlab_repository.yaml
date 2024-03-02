@@ -1,0 +1,15 @@
+get:
+  deprecated: true
+  summary: Get gitlab repositories of the connected user
+  operationId: getGitlabRepositories
+  tags:
+    - Git repositories
+  responses:
+    '200':
+      description: Get gitlab repositories
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GitRepositoryResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml

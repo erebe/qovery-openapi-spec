@@ -1,0 +1,9 @@
+type: object
+properties:
+  cluster_id:
+    type: string
+    format: uuid
+  status:
+    $ref: ./ClusterState.yaml
+  is_deployed:
+    type: boolean

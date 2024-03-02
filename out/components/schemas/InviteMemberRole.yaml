@@ -1,0 +1,7 @@
+type: string
+description: deprecated
+enum:
+  - ADMIN
+  - DEVELOPER
+  - OWNER
+  - VIEWER

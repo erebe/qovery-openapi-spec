@@ -1,0 +1,30 @@
+post:
+  summary: Deploy services
+  description: Update and deploy the selected services
+  operationId: deployAllServices
+  parameters:
+    - $ref: ../components/parameters/environmentId.yaml
+  tags:
+    - Environment Actions
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/DeployAllRequest.yaml
+  responses:
+    '202':
+      description: Deployed services
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Status.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Operation is in progress

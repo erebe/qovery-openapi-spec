@@ -1,0 +1,25 @@
+get:
+  summary: List last commits
+  description: >-
+    Returns list of the last 100 commits made on the repository linked to the
+    application
+  operationId: listApplicationCommit
+  parameters:
+    - $ref: ../components/parameters/applicationId.yaml
+    - $ref: ../components/parameters/startId.yaml
+    - $ref: ../components/parameters/gitCommitId.yaml
+  tags:
+    - Application Main Calls
+  responses:
+    '200':
+      description: List commits
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CommitResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

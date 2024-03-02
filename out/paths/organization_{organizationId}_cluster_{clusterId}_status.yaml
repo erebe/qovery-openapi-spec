@@ -1,0 +1,21 @@
+get:
+  summary: Get cluster status
+  operationId: getClusterStatus
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+    - $ref: ../components/parameters/clusterId.yaml
+  tags:
+    - Clusters
+  responses:
+    '200':
+      description: Get status
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ClusterStatusGetResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

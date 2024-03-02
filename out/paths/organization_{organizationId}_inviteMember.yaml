@@ -1,0 +1,49 @@
+get:
+  summary: Get invited members
+  operationId: getOrganizationInvitedMembers
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Members
+  responses:
+    '200':
+      description: Get invited members
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/InviteMemberResponseList.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+post:
+  summary: Invite someone in the organization
+  operationId: postInviteMember
+  parameters:
+    - $ref: ../components/parameters/organizationId.yaml
+  tags:
+    - Members
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/InviteMemberRequest.yaml
+  responses:
+    '201':
+      description: User invited
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/InviteMemberResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: User already invited

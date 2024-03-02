@@ -1,0 +1,4 @@
+allOf:
+  - $ref: ./ReferenceObject.yaml
+  - $ref: ./ServiceTotalNumber.yaml
+  - $ref: ./EnvironmentTotalNumber.yaml

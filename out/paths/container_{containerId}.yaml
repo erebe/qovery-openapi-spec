@@ -1,0 +1,76 @@
+get:
+  summary: Get container by ID
+  operationId: getContainer
+  parameters:
+    - $ref: ../components/parameters/containerId.yaml
+  tags:
+    - Container Main Calls
+  responses:
+    '200':
+      description: Get container by ID
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ContainerResponse.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+put:
+  summary: Edit container
+  description: >
+    - To edit the container you must have the admin permission.
+
+    - For port edition, if you provide a port id, we will update the
+    corresponding port. If you don't we will create a new one. If you remove a
+    port from the payload, we will delete it.
+
+    - For storage edition, if you provide a storage id, we will update the
+    corresponding storage. If you don't we will create a new one. If you remove
+    a storage from the payload, we will delete it.
+  operationId: editContainer
+  parameters:
+    - $ref: ../components/parameters/containerId.yaml
+  tags:
+    - Container Main Calls
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ContainerRequest.yaml
+  responses:
+    '200':
+      description: Edit container
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ContainerResponse.yaml
+    '400':
+      $ref: ../components/responses/BadRequest.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Container name within the environment is already taken
+delete:
+  summary: Delete container
+  description: To delete the container you must have the admin permission
+  operationId: deleteContainer
+  parameters:
+    - $ref: ../components/parameters/containerId.yaml
+  tags:
+    - Container Main Calls
+  responses:
+    '204':
+      $ref: ../components/responses/Deleted.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml

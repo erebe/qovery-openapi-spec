@@ -1,0 +1,22 @@
+post:
+  summary: Stop application
+  operationId: stopApplication
+  parameters:
+    - $ref: ../components/parameters/applicationId.yaml
+  tags:
+    - Application Actions
+  responses:
+    '202':
+      description: Application stop has been requested
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Status.yaml
+    '401':
+      $ref: ../components/responses/NotAuthorized.yaml
+    '403':
+      $ref: ../components/responses/Forbidden.yaml
+    '404':
+      $ref: ../components/responses/NotFound.yaml
+    '409':
+      description: Application is already stopped or an operation is in progress

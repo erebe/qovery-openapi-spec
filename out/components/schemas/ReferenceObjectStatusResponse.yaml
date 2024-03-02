@@ -1,0 +1,3 @@
+allOf:
+  - $ref: ./ReferenceObject.yaml
+  - $ref: ./Status.yaml

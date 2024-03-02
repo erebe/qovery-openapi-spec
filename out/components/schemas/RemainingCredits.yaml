@@ -1,0 +1,3 @@
+allOf:
+  - $ref: ./CostResponse.yaml
+  - type: object
