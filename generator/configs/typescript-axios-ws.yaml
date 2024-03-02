@@ -1,4 +1,0 @@
-additionalProperties:
-  supportsES6: true
-  enumPropertyNaming: UPPERCASE
-  npmName: qovery-ws-typescript-axios
